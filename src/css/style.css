@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-size: 14px;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 12px;
+  background-color: transparent;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 28%;
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 16px;
+  width: 100%;
+  height: 460px;
+  overflow-y: auto;
+  padding: 5px;
+  /* margin-bottom: 20px; */
+}
+
+.connector {
+  border: 1px solid gray;
+  border-bottom: none;
+  /* border-top: none; */
+  width: 20px;
+  height: 90%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 10px;
+  top: 25px;
+  z-index: -1;
+}
+
+.form {
+  margin: auto;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.post {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  margin-top: 14px;
+  background-color: white;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.date {
+  text-align: end;
+  font-size: 12px;
+}
+
+.content {
+  margin-bottom: 16px;
+}
+
+.coordinates {
+  font-size: 12px;
+}
+
+.coords-modal {
+  display: none;
+}
+
+.coords-modal.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20%;
+  gap: 20px;
+  width: 90%;
+  border: 1px solid gray;
+  border-radius: 14px;
+  background-color: white;
+  padding: 24px;
+}
+
+.coords-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.coords-input {
+  outline: none;
+  padding: 10px;
+  height: 40px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-end;
+}
