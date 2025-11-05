@@ -31,7 +31,6 @@ input.addEventListener("keydown", (e) => {
           const manualCoordsModal = new ManualCoordsModal();
           manualCoordsModal.open((coords) => {
             if (coords) {
-              console.log(coords);
               createPost(
                 userInput,
                 `[${coords.latitude.toFixed(5)}, ${coords.longitude.toFixed(5)}]`,
@@ -45,7 +44,7 @@ input.addEventListener("keydown", (e) => {
       if (!errorEl) {
         errorEl = new Error(
           container,
-          "Невозможно отправить пустой пост. Введите сообщение, запишите аудио или видео",
+          "Невозможно отправить пустой пост. Напишите что-нибудь...",
         );
       }
     }

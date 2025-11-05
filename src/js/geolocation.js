@@ -27,8 +27,12 @@ export function isValid(value) {
 }
 
 export function formatCoords(coords) {
-  // eslint-disable-next-line no-useless-escape
-  const formattedCoords = coords.replace(/[\s\[\]]/g, "");
+  const formattedCoords = coords
+    .trim()
+    .replace(/[−–—]/g, "-")
+    .replace(/^\[|\]$/g, "")
+    .replace(/\s+/g, "");
+
   const index = formattedCoords.indexOf(",");
   const latitude = Number(formattedCoords.slice(0, index));
   const longitude = Number(formattedCoords.slice(index + 1));
