@@ -1,7 +1,9 @@
 import { isValid, formatCoords } from "./geolocation";
+import Error from "./Error";
 
 export default class ManualCoordsModal {
   constructor() {
+    this.errorEl = null;
     this.container = document.querySelector(".container");
     this.modal = document.createElement("div");
     this.modal.classList.add("coords-modal");
@@ -23,6 +25,7 @@ export default class ManualCoordsModal {
     this.form = this.modal.querySelector(".coords-form");
     this.input = this.form.querySelector(".coords-input");
     this.closeBtn = this.modal.querySelector(".close-btn");
+    this.buttons = this.modal.querySelector(".buttons");
 
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
@@ -30,6 +33,13 @@ export default class ManualCoordsModal {
 
     this.form.addEventListener("submit", this.handleSubmit);
     this.closeBtn.addEventListener("click", this.close);
+
+    this.input.addEventListener("focus", () => {
+      if (this.errorEl) {
+        this.errorEl.error.remove();
+        this.errorEl = null;
+      }
+    });
   }
 
   open(callback) {
@@ -45,14 +55,18 @@ export default class ManualCoordsModal {
   handleSubmit(e) {
     e.preventDefault();
     const usersCoords = this.input.value;
-    console.log(this.input);
 
     if (isValid(usersCoords)) {
       const formattedCoords = formatCoords(usersCoords);
       if (this.callback) this.callback(formattedCoords);
       this.close();
     } else {
-      console.log("Пожалуйста введите корректные координаты");
+      if (!this.errorEl) {
+        this.errorEl = new Error(
+          this.form,
+          "Пожалуйста введите корректные координаты",
+        );
+      }
     }
   }
 }

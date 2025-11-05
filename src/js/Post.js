@@ -9,15 +9,15 @@ export default class Post {
   bindToDOM() {
     this.post = document.createElement("div");
     this.post.classList.add("post");
-    this.post.innerHTML = `
+    ((this.post.innerHTML = `
     <input class="checkbox" type="checkbox">
     <div class="content-container">
     <span class="date">${this.formatDate()}</span>
     <p class="content">${this.content}</p>
     <p class="coordinates">${this.coordinates}</p>
     </div>
-        `;
-    this.parentEl.append(this.post);
+        `),
+      this.parentEl.prepend(this.post));
   }
 
   formatDate() {
